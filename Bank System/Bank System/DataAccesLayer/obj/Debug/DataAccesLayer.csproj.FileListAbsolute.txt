@@ -1,0 +1,6 @@
+C:\Users\diyah\Desktop\Bank System\DataAccesLayer\bin\Debug\DataAccesLayer.dll
+C:\Users\diyah\Desktop\Bank System\DataAccesLayer\bin\Debug\DataAccesLayer.pdb
+C:\Users\diyah\Desktop\Bank System\DataAccesLayer\obj\Debug\DataAccesLayer.csproj.AssemblyReference.cache
+C:\Users\diyah\Desktop\Bank System\DataAccesLayer\obj\Debug\DataAccesLayer.csproj.CoreCompileInputs.cache
+C:\Users\diyah\Desktop\Bank System\DataAccesLayer\obj\Debug\DataAccesLayer.dll
+C:\Users\diyah\Desktop\Bank System\DataAccesLayer\obj\Debug\DataAccesLayer.pdb

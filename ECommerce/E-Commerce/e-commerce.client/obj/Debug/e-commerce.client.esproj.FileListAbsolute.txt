@@ -1,0 +1,2 @@
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\e-commerce.client\obj\Debug\e-commerce.client.esproj.CoreCompileInputs.cache
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\e-commerce.client\obj\Debug\e-commerce.client.esproj.CoreCompileInputs.cache

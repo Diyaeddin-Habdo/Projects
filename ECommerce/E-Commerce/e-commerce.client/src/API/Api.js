@@ -1,0 +1,10 @@
+export const baseURL = `https://localhost:7293/api`;
+export const REGISTER = "Users/Register";
+export const LOGIN = "Users/Login";
+export const USERS = "Users";
+export const LOGOUT = "Users/Logout";
+export const CATEGORIES = "Categories";
+export const PRODUCTS = "Products";
+export const LatestSales = "Products/LatestSales";
+export const LatestProducts = "Products/LatestProducts";
+export const Top_N_Rated = "Products/TopRated";

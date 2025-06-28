@@ -1,0 +1,7 @@
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\bin\Release\DatabaseBackupService.exe.config
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\bin\Release\DatabaseBackupService.exe
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\bin\Release\DatabaseBackupService.pdb
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\obj\Release\DatabaseBackupService.csproj.AssemblyReference.cache
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\obj\Release\DatabaseBackupService.csproj.CoreCompileInputs.cache
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\obj\Release\DatabaseBackupService.exe
+E:\24) Windows Services\DatabaseBackupService\DatabaseBackupService\obj\Release\DatabaseBackupService.pdb

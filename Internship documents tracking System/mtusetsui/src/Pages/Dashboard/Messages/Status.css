@@ -1,0 +1,20 @@
+.message {
+    display: block;                /* Ensures the message spans the full width */
+    margin-top: 10px;              /* Space above the message */
+    padding: 10px 15px;            /* Padding inside the message box */
+    border-radius: 5px;            /* Rounded corners */
+    background-color: #f0f4f8;     /* Light background */
+    color: #333;                   /* Dark text color */
+    font-size: 14px;               /* Font size */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-left: 4px solid #3bb77e; /* Colored border on the left */
+    opacity: 0;                    /* Initially hidden */
+    animation: fadeIn 1s ease forwards; /* Smooth fade-in animation */
+    animation-delay: 0.2s;         /* Optional delay before the animation starts */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); } /* Starts lower and invisible */
+    to { opacity: 1; transform: translateY(0); }      /* Moves into place */
+}

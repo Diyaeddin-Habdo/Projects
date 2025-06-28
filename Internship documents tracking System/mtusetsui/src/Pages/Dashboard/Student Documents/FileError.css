@@ -1,0 +1,16 @@
+/* Yanıp sönme animasyonu */
+@keyframes flashRed {
+    0% { opacity: 1; color: #ff4d4d; }  /* İlk renk kırmızı */
+    50% { opacity: 0.5; color: #ff0000; } /* Orta nokta daha koyu kırmızı */
+    100% { opacity: 1; color: #ff4d4d; } /* Renk ve opacity başlangıç noktasına döner */
+}
+
+/* FileError sınıfı */
+.FileError {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    animation: flashRed 1.5s ease-in-out infinite; /* Sürekli döngü */
+    text-align: center;
+}

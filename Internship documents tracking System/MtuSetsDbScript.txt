@@ -1,0 +1,1078 @@
+USE [master]
+GO
+/****** Object:  Database [MtuSETS]    Script Date: 22.11.2024 12:40:46 ******/
+CREATE DATABASE [MtuSETS]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'MtuSETS', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\MtuSETS.mdf' , SIZE = 73728KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'MtuSETS_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\MtuSETS_log.ldf' , SIZE = 73728KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [MtuSETS] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [MtuSETS].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [MtuSETS] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [MtuSETS] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [MtuSETS] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [MtuSETS] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [MtuSETS] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [MtuSETS] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [MtuSETS] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [MtuSETS] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [MtuSETS] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [MtuSETS] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [MtuSETS] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [MtuSETS] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [MtuSETS] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [MtuSETS] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [MtuSETS] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [MtuSETS] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [MtuSETS] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [MtuSETS] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [MtuSETS] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [MtuSETS] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [MtuSETS] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [MtuSETS] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [MtuSETS] SET RECOVERY FULL 
+GO
+ALTER DATABASE [MtuSETS] SET  MULTI_USER 
+GO
+ALTER DATABASE [MtuSETS] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [MtuSETS] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [MtuSETS] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [MtuSETS] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [MtuSETS] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [MtuSETS] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'MtuSETS', N'ON'
+GO
+ALTER DATABASE [MtuSETS] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [MtuSETS] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [MtuSETS]
+GO
+/****** Object:  Table [dbo].[Departments]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Departments](
+	[Id] [nvarchar](50) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Departments] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Documents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Documents](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[StudentId] [int] NOT NULL,
+	[SGKStajFormu] [nvarchar](250) NOT NULL,
+	[StajBasvuruFormu] [nvarchar](250) NOT NULL,
+	[StajKabulFormu] [nvarchar](250) NOT NULL,
+	[StajTaahhutnameFormu] [nvarchar](250) NOT NULL,
+	[UploadTime] [datetime] NOT NULL,
+	[Status] [nvarchar](50) NULL,
+ CONSTRAINT [PK_StajEvraklari] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Logs]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Logs](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[TeacherId] [int] NOT NULL,
+	[DocumentId] [int] NOT NULL,
+	[Status] [nvarchar](50) NOT NULL,
+	[Time] [datetime] NOT NULL,
+ CONSTRAINT [PK_Logs] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Messages]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Messages](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Message] [nvarchar](1000) NOT NULL,
+	[FromId] [int] NOT NULL,
+	[ToId] [int] NOT NULL,
+	[Time] [datetime] NOT NULL,
+ CONSTRAINT [PK_Messages] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Students]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Students](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Email] [nvarchar](100) NOT NULL,
+	[Password] [nvarchar](64) NOT NULL,
+	[Phone] [nvarchar](11) NOT NULL,
+	[SNo] [nvarchar](11) NOT NULL,
+	[ImagePath] [nvarchar](250) NOT NULL,
+	[Role] [nvarchar](8) NOT NULL,
+	[DepartmentId] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Ogrenciler] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StudentsLoginLogs]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StudentsLoginLogs](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Time] [datetime] NOT NULL,
+	[Studentıd] [int] NOT NULL,
+ CONSTRAINT [PK_StudentsLoginLogs] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Teachers]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Teachers](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Email] [nvarchar](100) NOT NULL,
+	[Password] [nvarchar](64) NOT NULL,
+	[Phone] [nvarchar](11) NOT NULL,
+	[ImagePath] [nvarchar](250) NOT NULL,
+	[Role] [nvarchar](20) NOT NULL,
+	[DepartmentId] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Hocalar] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TeachersLoginLogs]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TeachersLoginLogs](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Time] [datetime] NOT NULL,
+	[TeacherId] [int] NOT NULL,
+ CONSTRAINT [PK_TeachersLoginLogs] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Departments] ([Id], [Name]) VALUES (N'0f8fad5b-d9cb-469f-a165-70867728950e', N'ComputerEng')
+GO
+INSERT [dbo].[Departments] ([Id], [Name]) VALUES (N'7c9e6679-7425-40de-944b-e07fc1f90ae7', N'SoftwareEng')
+GO
+SET IDENTITY_INSERT [dbo].[Documents] ON 
+GO
+INSERT [dbo].[Documents] ([Id], [StudentId], [SGKStajFormu], [StajBasvuruFormu], [StajKabulFormu], [StajTaahhutnameFormu], [UploadTime], [Status]) VALUES (1, 2, N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274069/hkvrgxyumumruu2snmnh.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274069/cvrolinsrwpr23qntlmp.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274069/ytybxplmsgcyefv1sxcz.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274069/cnxxppyfz2urjslxnqsw.pdf', CAST(N'2024-10-30T10:41:09.433' AS DateTime), N'Danisman Onayladi')
+GO
+INSERT [dbo].[Documents] ([Id], [StudentId], [SGKStajFormu], [StajBasvuruFormu], [StajKabulFormu], [StajTaahhutnameFormu], [UploadTime], [Status]) VALUES (2, 3, N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274662/sseh3vngaj5gx5wyyrp1.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274662/kzarxh8emiiklhgkzdub.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274662/uq3sjnfwmjga3jzygks7.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730274662/xnp1frq4ocwnmpq75xnl.pdf', CAST(N'2024-10-30T10:51:02.403' AS DateTime), N'Danisman Onayladi')
+GO
+INSERT [dbo].[Documents] ([Id], [StudentId], [SGKStajFormu], [StajBasvuruFormu], [StajKabulFormu], [StajTaahhutnameFormu], [UploadTime], [Status]) VALUES (3, 1, N'http://res.cloudinary.com/do63szaea/raw/upload/v1730277120/ytugvtzm9nh2uitqytgi.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730277121/nl3cgvi2ssxw71aazbqv.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730277121/mxygpfxaxmrixx0r45so.pdf', N'http://res.cloudinary.com/do63szaea/raw/upload/v1730277121/cvsf35byq7ohul1q4d7c.pdf', CAST(N'2024-10-30T11:32:01.207' AS DateTime), N'Beklemede')
+GO
+SET IDENTITY_INSERT [dbo].[Documents] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Logs] ON 
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (1, 25, 2, N'Hoca Reddetti', CAST(N'2024-10-30T10:46:22.983' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (2, 25, 2, N'Hoca Onayladi', CAST(N'2024-10-30T10:54:32.303' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (3, 24, 2, N'Danisman Onayladi', CAST(N'2024-10-30T10:56:16.997' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (4, 14, 1, N'Hoca Onayladi', CAST(N'2024-10-30T10:59:14.867' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (5, 1, 1, N'Danisman Onayladi', CAST(N'2024-10-30T11:00:11.763' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (6, 14, 3, N'Hoca Reddetti', CAST(N'2024-10-30T11:14:35.383' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (7, 14, 3, N'Hoca Reddetti', CAST(N'2024-10-30T11:20:18.463' AS DateTime))
+GO
+INSERT [dbo].[Logs] ([Id], [TeacherId], [DocumentId], [Status], [Time]) VALUES (8, 14, 3, N'Hoca Reddetti', CAST(N'2024-10-30T11:30:12.183' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Logs] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Messages] ON 
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (1, N'SGK formunda yazılan tarihler yalnış', 25, 3, CAST(N'2024-10-30T10:46:22.983' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (2, N'Belgelerin tamam danışman hocaya yönlendirdim.', 25, 3, CAST(N'2024-10-30T10:54:32.303' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (3, N'Belgelerini onayladım Muhammed Ali,Faydalı bir staj dilerim', 24, 3, CAST(N'2024-10-30T10:56:16.997' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (4, N'Enes belgelerinde sorun yok ,onayladım', 14, 2, CAST(N'2024-10-30T10:59:14.867' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (5, N'Onaylandı,iyi stajlar dileğiyle', 1, 2, CAST(N'2024-10-30T11:00:11.763' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (6, N'Başvuru formunda çok hata var', 14, 1, CAST(N'2024-10-30T11:14:35.383' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (7, N'aaaaaaaaa', 14, 1, CAST(N'2024-10-30T11:20:18.463' AS DateTime))
+GO
+INSERT [dbo].[Messages] ([Id], [Message], [FromId], [ToId], [Time]) VALUES (8, N'bbbbbbbbb', 14, 1, CAST(N'2024-10-30T11:30:12.183' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Messages] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Students] ON 
+GO
+INSERT [dbo].[Students] ([Id], [Name], [Email], [Password], [Phone], [SNo], [ImagePath], [Role], [DepartmentId]) VALUES (1, N'Diyaeddin Habdo', N'02210202501@ozal.edu.tr', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'05527262536', N'02210202501', N'https://res.cloudinary.com/do63szaea/image/upload/v1728918044/jwkczo4xarmsuorcyoqc.jpg', N'1753', N'0f8fad5b-d9cb-469f-a165-70867728950e')
+GO
+INSERT [dbo].[Students] ([Id], [Name], [Email], [Password], [Phone], [SNo], [ImagePath], [Role], [DepartmentId]) VALUES (2, N'Enes Özmen', N'enes@gmail.com', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'05417816876', N'02210202503', N'https://res.cloudinary.com/do63szaea/image/upload/v1730206015/rx5nofcfvfbjclrbldcg.jpg', N'1753', N'0f8fad5b-d9cb-469f-a165-70867728950e')
+GO
+INSERT [dbo].[Students] ([Id], [Name], [Email], [Password], [Phone], [SNo], [ImagePath], [Role], [DepartmentId]) VALUES (3, N'Muhammed Ali', N'ali@gmail.com', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'05324441367', N'02210573774', N'https://res.cloudinary.com/do63szaea/image/upload/v1730273823/qatuyhnzlxawkh3uiqfl.jpg', N'1753', N'7c9e6679-7425-40de-944b-e07fc1f90ae7')
+GO
+SET IDENTITY_INSERT [dbo].[Students] OFF
+GO
+SET IDENTITY_INSERT [dbo].[StudentsLoginLogs] ON 
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (1, CAST(N'2024-10-29T22:07:24.120' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (2, CAST(N'2024-10-29T22:13:37.060' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (3, CAST(N'2024-10-29T22:14:40.840' AS DateTime), 2)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (4, CAST(N'2024-10-30T00:17:47.300' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (5, CAST(N'2024-10-30T00:34:47.880' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (6, CAST(N'2024-10-30T08:48:51.627' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (7, CAST(N'2024-10-30T08:54:01.143' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (8, CAST(N'2024-10-30T08:59:33.920' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (9, CAST(N'2024-10-30T09:10:24.600' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (10, CAST(N'2024-10-30T10:40:13.597' AS DateTime), 2)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (11, CAST(N'2024-10-30T10:42:35.737' AS DateTime), 3)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (12, CAST(N'2024-10-30T10:47:24.350' AS DateTime), 3)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (13, CAST(N'2024-10-30T10:48:18.907' AS DateTime), 3)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (14, CAST(N'2024-10-30T10:58:09.480' AS DateTime), 3)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (15, CAST(N'2024-10-30T10:58:30.780' AS DateTime), 2)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (16, CAST(N'2024-10-30T10:59:30.233' AS DateTime), 2)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (17, CAST(N'2024-10-30T11:00:26.820' AS DateTime), 2)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (18, CAST(N'2024-10-30T11:12:54.930' AS DateTime), 2)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (19, CAST(N'2024-10-30T11:13:33.353' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (20, CAST(N'2024-10-30T11:14:50.433' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (21, CAST(N'2024-10-30T11:20:27.347' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (22, CAST(N'2024-10-30T11:30:23.107' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (23, CAST(N'2024-11-22T12:18:47.770' AS DateTime), 1)
+GO
+INSERT [dbo].[StudentsLoginLogs] ([Id], [Time], [Studentıd]) VALUES (24, CAST(N'2024-11-22T12:28:28.373' AS DateTime), 1)
+GO
+SET IDENTITY_INSERT [dbo].[StudentsLoginLogs] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Teachers] ON 
+GO
+INSERT [dbo].[Teachers] ([Id], [Name], [Email], [Password], [Phone], [ImagePath], [Role], [DepartmentId]) VALUES (1, N'Fatih Topaloğlu', N'fatih.topaloglu@ozal.edu.tr', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'04228461255', N'https://res.cloudinary.com/do63szaea/image/upload/v1728801144/bqenamwkunnl15e8vtr4.jpg', N'3953', N'0f8fad5b-d9cb-469f-a165-70867728950e')
+GO
+INSERT [dbo].[Teachers] ([Id], [Name], [Email], [Password], [Phone], [ImagePath], [Role], [DepartmentId]) VALUES (14, N'Muhammed YILDIRIM', N'muhammed.yildirim@ozal.edu.tr', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'05521111111', N'http://res.cloudinary.com/do63szaea/image/upload/v1728817955/rzto4k3pyg7r1vyzixgp.jpg', N'9763', N'0f8fad5b-d9cb-469f-a165-70867728950e')
+GO
+INSERT [dbo].[Teachers] ([Id], [Name], [Email], [Password], [Phone], [ImagePath], [Role], [DepartmentId]) VALUES (24, N'Mücahit Karaduman', N'mucahit.karaduman@ozal.edu.tr', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'05521111111', N'https://res.cloudinary.com/do63szaea/image/upload/v1730204128/subuvlpbanmfnmp8ozf6.jpg', N'3953', N'7c9e6679-7425-40de-944b-e07fc1f90ae7')
+GO
+INSERT [dbo].[Teachers] ([Id], [Name], [Email], [Password], [Phone], [ImagePath], [Role], [DepartmentId]) VALUES (25, N'Canan Batur Şahin', N'canan.batur@ozal.edu.tr', N'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', N'05521111111', N'https://res.cloudinary.com/do63szaea/image/upload/v1730204426/dju5plvzcwojgaszd7sf.jpg', N'9763', N'7c9e6679-7425-40de-944b-e07fc1f90ae7')
+GO
+SET IDENTITY_INSERT [dbo].[Teachers] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TeachersLoginLogs] ON 
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (1, CAST(N'2024-10-29T22:17:16.407' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (2, CAST(N'2024-10-29T22:19:45.783' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (3, CAST(N'2024-10-29T22:34:01.800' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (4, CAST(N'2024-10-29T22:34:48.997' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (5, CAST(N'2024-10-29T23:57:26.397' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (6, CAST(N'2024-10-30T00:01:42.530' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (7, CAST(N'2024-10-30T00:15:51.750' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (8, CAST(N'2024-10-30T10:43:57.360' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (9, CAST(N'2024-10-30T10:44:46.193' AS DateTime), 25)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (10, CAST(N'2024-10-30T10:51:17.797' AS DateTime), 25)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (11, CAST(N'2024-10-30T10:51:42.560' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (12, CAST(N'2024-10-30T10:51:50.977' AS DateTime), 1)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (13, CAST(N'2024-10-30T10:52:17.757' AS DateTime), 24)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (14, CAST(N'2024-10-30T10:52:33.650' AS DateTime), 25)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (15, CAST(N'2024-10-30T10:55:01.970' AS DateTime), 1)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (16, CAST(N'2024-10-30T10:55:12.930' AS DateTime), 24)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (17, CAST(N'2024-10-30T10:56:34.737' AS DateTime), 25)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (18, CAST(N'2024-10-30T10:58:45.687' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (19, CAST(N'2024-10-30T10:59:42.800' AS DateTime), 1)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (20, CAST(N'2024-10-30T11:14:08.020' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (21, CAST(N'2024-10-30T11:20:11.927' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (22, CAST(N'2024-10-30T11:30:04.313' AS DateTime), 14)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (23, CAST(N'2024-11-22T12:19:35.813' AS DateTime), 1)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (24, CAST(N'2024-11-22T12:21:24.143' AS DateTime), 24)
+GO
+INSERT [dbo].[TeachersLoginLogs] ([Id], [Time], [TeacherId]) VALUES (25, CAST(N'2024-11-22T12:21:58.677' AS DateTime), 25)
+GO
+SET IDENTITY_INSERT [dbo].[TeachersLoginLogs] OFF
+GO
+ALTER TABLE [dbo].[Students] ADD  CONSTRAINT [DF_Students_Role]  DEFAULT (N'Student') FOR [Role]
+GO
+ALTER TABLE [dbo].[Documents]  WITH CHECK ADD  CONSTRAINT [FK_StajEvraklari_Ogrenciler] FOREIGN KEY([StudentId])
+REFERENCES [dbo].[Students] ([Id])
+GO
+ALTER TABLE [dbo].[Documents] CHECK CONSTRAINT [FK_StajEvraklari_Ogrenciler]
+GO
+ALTER TABLE [dbo].[Logs]  WITH CHECK ADD  CONSTRAINT [FK_Logs_StajEvraklari] FOREIGN KEY([DocumentId])
+REFERENCES [dbo].[Documents] ([Id])
+GO
+ALTER TABLE [dbo].[Logs] CHECK CONSTRAINT [FK_Logs_StajEvraklari]
+GO
+ALTER TABLE [dbo].[Logs]  WITH CHECK ADD  CONSTRAINT [FK_Logs_Teachers] FOREIGN KEY([TeacherId])
+REFERENCES [dbo].[Teachers] ([Id])
+GO
+ALTER TABLE [dbo].[Logs] CHECK CONSTRAINT [FK_Logs_Teachers]
+GO
+ALTER TABLE [dbo].[Messages]  WITH CHECK ADD  CONSTRAINT [FK_Mesajlar_Hocalar] FOREIGN KEY([FromId])
+REFERENCES [dbo].[Teachers] ([Id])
+GO
+ALTER TABLE [dbo].[Messages] CHECK CONSTRAINT [FK_Mesajlar_Hocalar]
+GO
+ALTER TABLE [dbo].[Messages]  WITH CHECK ADD  CONSTRAINT [FK_Mesajlar_Ogrenciler] FOREIGN KEY([ToId])
+REFERENCES [dbo].[Students] ([Id])
+GO
+ALTER TABLE [dbo].[Messages] CHECK CONSTRAINT [FK_Mesajlar_Ogrenciler]
+GO
+ALTER TABLE [dbo].[Students]  WITH CHECK ADD  CONSTRAINT [FK_Students_Departments] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Departments] ([Id])
+GO
+ALTER TABLE [dbo].[Students] CHECK CONSTRAINT [FK_Students_Departments]
+GO
+ALTER TABLE [dbo].[StudentsLoginLogs]  WITH CHECK ADD  CONSTRAINT [FK_StudentsLoginLogs_Students] FOREIGN KEY([Studentıd])
+REFERENCES [dbo].[Students] ([Id])
+GO
+ALTER TABLE [dbo].[StudentsLoginLogs] CHECK CONSTRAINT [FK_StudentsLoginLogs_Students]
+GO
+ALTER TABLE [dbo].[Teachers]  WITH CHECK ADD  CONSTRAINT [FK_Teachers_Departments] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[Departments] ([Id])
+GO
+ALTER TABLE [dbo].[Teachers] CHECK CONSTRAINT [FK_Teachers_Departments]
+GO
+ALTER TABLE [dbo].[TeachersLoginLogs]  WITH CHECK ADD  CONSTRAINT [FK_TeachersLoginLogs_Teachers] FOREIGN KEY([TeacherId])
+REFERENCES [dbo].[Teachers] ([Id])
+GO
+ALTER TABLE [dbo].[TeachersLoginLogs] CHECK CONSTRAINT [FK_TeachersLoginLogs_Teachers]
+GO
+/****** Object:  StoredProcedure [dbo].[GetDocumentsStatus]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[GetDocumentsStatus]
+	@StudentId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	Select Status from Documents where StudentId = @StudentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetPendingDocuments]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[GetPendingDocuments]
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select * from Documents where Status = 'Beklemede';
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_AddDocuments]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_AddDocuments]
+    @StudentId int,
+	@SGKStajFormu nvarchar(250),
+	@StajBasvuruFormu nvarchar(250),
+	@StajKabulFormu nvarchar(250),
+	@StajTaahhutnameFormu nvarchar(250),
+	@UploadTime datetime,
+	@Status nvarchar(50),
+	@addedId int out
+AS
+BEGIN
+    SET NOCOUNT ON;
+    insert into Documents(StudentId,SGKStajFormu,StajBasvuruFormu,StajKabulFormu,StajTaahhutnameFormu,Status,UploadTime)
+	values(@StudentId,@SGKStajFormu,@StajBasvuruFormu,@StajKabulFormu,@StajTaahhutnameFormu,@Status,@UploadTime);
+
+	set @addedId = SCOPE_IDENTITY();
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_AddStudent]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_AddStudent]
+@Name nvarchar(50),
+@Email nvarchar(100),
+@Password nvarchar(64),
+@Phone nvarchar(11),
+@SNo nvarchar(11),
+@ImagePath nvarchar(250),
+@NewStudentId int out
+as
+Begin
+	SET NOCOUNT ON;
+	if exists(select 1 from Students where Name = @Name or Email = @Email or Phone = @Phone or SNo = @SNo)
+	begin
+		set @NewStudentId = -1;
+	end
+	else
+	begin
+		insert into Students(Name,Email,Password,Phone,SNo,ImagePath)
+		values(@Name,@Email,@Password,@Phone,@SNo,@ImagePath);
+
+		set @NewStudentId = SCOPE_IDENTITY();
+	end
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_AddTeacher]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[SP_AddTeacher]
+@Name nvarchar(50),
+@Email nvarchar(100),
+@Password nvarchar(64),
+@Phone nvarchar(11),
+@ImagePath nvarchar(250),
+@Role nvarchar(20),
+@DepartmentId int,
+@NewTeacherId int out
+as
+Begin
+	SET NOCOUNT ON;
+	if exists(select 1 from Teachers where Name = @Name or Email = @Email or Phone = @Phone)
+	begin
+		set @NewTeacherId = -1;
+	end
+	else
+	begin
+		insert into Teachers(Name,Email,Password,Phone,ImagePath,Role,DepartmentId)
+		values(@Name,@Email,@Password,@Phone,@ImagePath,@Role,@DepartmentId);
+
+		set @NewTeacherId = SCOPE_IDENTITY();
+	end
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_DeleteDocuments]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_DeleteDocuments]
+	@DocumentsId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	Delete from Documents where Id = @DocumentsId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_DeleteStudent]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_DeleteStudent]
+	@StudentId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	Delete from Students where Id = @StudentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_DeleteTeacher]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_DeleteTeacher]
+	@TeacherId int
+AS
+BEGIN
+	Delete from Teachers where Id = @TeacherId and Role != '3953';
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_FindByCredentials]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create Procedure [dbo].[SP_FindByCredentials]
+@Email nvarchar(100),
+@Password nvarchar(64)
+as
+Begin
+	Select * from Teachers where Email = @Email and Password = @Password;
+End;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_FindStudentByCredentials]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create Procedure [dbo].[SP_FindStudentByCredentials]
+@Email nvarchar(100),
+@Password nvarchar(64)
+as
+Begin
+	Select * from Students where Email = @Email and Password = @Password;
+End;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetAdvisorApprovalStudents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetAdvisorApprovalStudents]
+@DepartmentId nvarchar(50)	
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Students.* FROM Documents 
+	INNER JOIN Students ON Documents.StudentId = Students.Id
+				  where Documents.Status = 'Danisman Onayladi' and Students.DepartmentId = @DepartmentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetAdvisorUnapprovalStudents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetAdvisorUnapprovalStudents]
+@DepartmentId nvarchar(50)	
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Students.* FROM Documents 
+	INNER JOIN Students ON Documents.StudentId = Students.Id
+				  where Documents.Status = 'Danisman Reddetti' and Students.DepartmentId = @DepartmentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetAllDocuments]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_GetAllDocuments]
+
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select * from Documents;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetAllStudents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_GetAllStudents]
+	
+AS
+BEGIN
+	SET NOCOUNT ON;
+	Select * from Students;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetAllTeachers]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetAllTeachers]
+	
+AS
+BEGIN
+	SET NOCOUNT ON;
+	Select * from Teachers;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetDocumentByStudentId]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_GetDocumentByStudentId]
+    @StudentId int
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select * from Documents where StudentId = @StudentId;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetDocumentsById]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_GetDocumentsById]
+    @DocumentsId int
+AS
+BEGIN
+    SET NOCOUNT ON;
+    select * from Documents where Id = @DocumentsId;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetMessageByFromId]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[SP_GetMessageByFromId]
+@FromId int
+as 
+Begin
+
+	select * from Messages where FromId = @FromId ORDER BY Time DESC;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetMessageByToId]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[SP_GetMessageByToId]
+@ToId int
+as 
+Begin
+
+	select * from Messages where ToId = @ToId ORDER BY Time DESC;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetPendingStudents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetPendingStudents]
+@DepartmentId nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Students.* FROM Documents 
+	INNER JOIN Students ON Documents.StudentId = Students.Id
+				  where Documents.Status = 'Beklemede' and Students.DepartmentId = @DepartmentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetStudentById]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_GetStudentById]
+	@StudentId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	Select * from Students where Id = @StudentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetStudentImage]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_GetStudentImage]
+@StudentId int
+as 
+
+Begin
+	select ImagePath from Students where Id = @StudentId;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetStudentName]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_GetStudentName]
+@StudentId int
+as 
+Begin
+	select Name from Students where Id = @StudentId;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherApprovalHistory]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_GetTeacherApprovalHistory]
+@TeacherId int
+as 
+
+Begin
+	SELECT Logs.Time, Logs.Status, Students.Name, Students.Email, Students.SNo, Students.ImagePath
+	FROM     Documents INNER JOIN
+                  Logs ON Documents.Id = Logs.DocumentId INNER JOIN
+                  Students ON Documents.StudentId = Students.Id INNER JOIN
+                  Teachers ON Logs.TeacherId = Teachers.Id where TeacherId = @TeacherId;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherApprovalHistoryByStudentId]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[SP_GetTeacherApprovalHistoryByStudentId]
+@StudentId int
+as 
+
+Begin
+	SELECT Logs.Time, Logs.Status, Teachers.Name, Teachers.Email, Teachers.Phone, Teachers.ImagePath
+	FROM     Documents INNER JOIN
+                  Logs ON Documents.Id = Logs.DocumentId INNER JOIN
+                  Students ON Documents.StudentId = Students.Id INNER JOIN
+                  Teachers ON Logs.TeacherId = Teachers.Id where Students.Id = @StudentId order by Logs.Time Desc;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherApprovalStudents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetTeacherApprovalStudents]
+@DepartmentId nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Students.* FROM Documents 
+	INNER JOIN Students ON Documents.StudentId = Students.Id
+				  where Documents.Status = 'Hoca Onayladi' and Students.DepartmentId = @DepartmentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherById]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetTeacherById]
+	@TeacherId int
+AS
+BEGIN
+	Select * from Teachers where Id = @TeacherId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherImage]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_GetTeacherImage]
+@TeacherId int
+as 
+
+Begin
+	select ImagePath from Teachers where Id = @TeacherId;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherName]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_GetTeacherName]
+@TeacherId int
+as 
+Begin
+	select Name from Teachers where Id = @TeacherId;
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_GetTeacherUnapprovalStudents]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_GetTeacherUnapprovalStudents]
+@DepartmentId nvarchar(50)	
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT Students.* FROM Documents 
+	INNER JOIN Students ON Documents.StudentId = Students.Id
+				  where Documents.Status = 'Hoca Reddetti' and Students.DepartmentId = @DepartmentId;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_StudentLogin]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_StudentLogin]
+    @Email NVARCHAR(100),
+    @Password NVARCHAR(64)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @StudentId INT;
+
+    -- Kimlik bilgilerini kontrol et ve TeacherId'yi al
+    SELECT @StudentId = Id
+    FROM Students 
+    WHERE Email = @Email AND Password = @Password;
+
+    -- Eğer TeacherId varsa, giriş kaydı oluştur
+    IF @StudentId IS NOT NULL
+    BEGIN
+        -- Giriş zamanı kayıt et
+        INSERT INTO StudentsLoginLogs (Studentıd, Time)
+        VALUES (@StudentId, GETDATE());
+
+        -- Sadece gerekli öğretmen bilgilerini döndür
+        SELECT *
+        FROM Students 
+        WHERE Id = @StudentId;
+    END
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_TeacherLogin]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_TeacherLogin]
+    @Email NVARCHAR(100),
+    @Password NVARCHAR(64)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @TeacherId INT;
+
+    -- Kimlik bilgilerini kontrol et ve TeacherId'yi al
+    SELECT @TeacherId = Id
+    FROM Teachers 
+    WHERE Email = @Email AND Password = @Password;
+
+    -- Eğer TeacherId varsa, giriş kaydı oluştur
+    IF @TeacherId IS NOT NULL
+    BEGIN
+        -- Giriş zamanı kayıt et
+        INSERT INTO TeachersLoginLogs (TeacherId, Time)
+        VALUES (@TeacherId, GETDATE());
+
+        -- Sadece gerekli öğretmen bilgilerini döndür
+        SELECT *
+        FROM Teachers 
+        WHERE Id = @TeacherId;
+    END
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UpdateDocuments]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_UpdateDocuments]
+    @Id INT,
+    @StudentId int,
+	@SGKStajFormu nvarchar(250),
+	@StajBasvuruFormu nvarchar(250),
+	@StajKabulFormu nvarchar(250),
+	@StajTaahhutnameFormu nvarchar(250),
+	@UploadTime datetime,
+	@Status nvarchar(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE Documents
+    SET StudentId = @StudentId,SGKStajFormu = @SGKStajFormu,StajBasvuruFormu = @StajBasvuruFormu,
+	StajKabulFormu = @StajKabulFormu,StajTaahhutnameFormu = @StajTaahhutnameFormu,
+	UploadTime = @UploadTime,Status = @Status where Id = @Id;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UpdateDocumentsStatus]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[SP_UpdateDocumentsStatus]
+@DocumentId int,
+@StudentId int,
+@TeacherId int,
+@Status nvarchar(50),
+@Message nvarchar(1000),
+@UploadTime datetime
+as
+
+Begin
+	update Documents set Status = @Status where Id = @DocumentId;
+	insert into Logs (TeacherId,DocumentId,Status,Time) values(@TeacherId,@DocumentId,@Status,@UploadTime);
+	insert into Messages(FromId,ToId,Message,Time) values (@TeacherId,@StudentId,@Message,@UploadTime);
+End
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UpdateStudent]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_UpdateStudent]
+    @Id INT,
+    @Name nvarchar(50),
+	@Email nvarchar(100),
+	@Password nvarchar(64),
+	@Phone nvarchar(11),
+	@SNo nvarchar(11),
+	@ImagePath nvarchar(250)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Eğer yeni isim başka bir kullanıcı tarafından kullanılıyorsa, güncelleme yapma
+    IF EXISTS (SELECT 1 FROM Students where (Name = @Name or Email = @Email or Phone = @Phone or SNo = @SNo) AND Id <> @Id)
+    BEGIN
+        ---- Burada işlem yapılmıyor, çünkü isim başka biri tarafından kullanılıyor
+        --RAISERROR('This name is used.', 16, 1);
+        RETURN;
+    END
+    
+    -- Eğer isim kullanılmıyorsa, güncellemeyi yap
+    UPDATE Students
+    SET Name = @Name,Email = @Email, Password = @Password,Phone = @Phone,SNo=@SNo,ImagePath = @ImagePath
+    WHERE Id = @Id;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UpdateTeacher]    Script Date: 22.11.2024 12:40:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_UpdateTeacher]
+    @Id INT,
+    @Name nvarchar(50),
+	@Email nvarchar(100),
+	@Password nvarchar(64),
+	@Phone nvarchar(11),
+	@ImagePath nvarchar(250),
+	@Role nvarchar(20),
+	@DepartmentId int
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Eğer yeni isim başka bir kullanıcı tarafından kullanılıyorsa, güncelleme yapma
+    IF EXISTS (SELECT 1 FROM Teachers where (Name = @Name or Email = @Email or Phone = @Phone) AND Id <> @Id)
+    BEGIN
+        ---- Burada işlem yapılmıyor, çünkü isim başka biri tarafından kullanılıyor
+        --RAISERROR('This name is used.', 16, 1);
+        RETURN;
+    END
+    
+    -- Eğer isim kullanılmıyorsa, güncellemeyi yap
+    UPDATE Teachers
+    SET Name = @Name,Email = @Email, Password = @Password,Phone = @Phone,ImagePath = @ImagePath,Role = @Role,DepartmentId = @DepartmentId
+    WHERE Id = @Id;
+END;
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'1 = admin(danışman) , 0 = hoca' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Teachers', @level2type=N'COLUMN',@level2name=N'Role'
+GO
+USE [master]
+GO
+ALTER DATABASE [MtuSETS] SET  READ_WRITE 
+GO

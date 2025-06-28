@@ -1,0 +1,30 @@
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\bin\Debug\net8.0\Business layer.deps.json
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\bin\Debug\net8.0\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\bin\Debug\net8.0\Business layer.pdb
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\bin\Debug\net8.0\DataAccess layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\bin\Debug\net8.0\DataAccess layer.pdb
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.csproj.AssemblyReference.cache
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.AssemblyInfoInputs.cache
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.AssemblyInfo.cs
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.csproj.CoreCompileInputs.cache
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business.DC978D32.Up2Date
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\refint\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.pdb
+C:\Users\diyah\OneDrive\Masaüstü\Staj-1\E-Commerce\Business layer\obj\Debug\net8.0\ref\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\bin\Debug\net8.0\Business layer.deps.json
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\bin\Debug\net8.0\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\bin\Debug\net8.0\Business layer.pdb
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\bin\Debug\net8.0\DataAccess layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\bin\Debug\net8.0\DataAccess layer.pdb
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.csproj.AssemblyReference.cache
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.AssemblyInfoInputs.cache
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.AssemblyInfo.cs
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.csproj.CoreCompileInputs.cache
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business.DC978D32.Up2Date
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\refint\Business layer.dll
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\Business layer.pdb
+C:\Users\diyah\OneDrive\Masaüstü\E-Commerce\Business layer\obj\Debug\net8.0\ref\Business layer.dll

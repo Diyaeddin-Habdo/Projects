@@ -1,0 +1,37 @@
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\Bank System.exe.config
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\Bank System.exe
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\Bank System.pdb
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank System.csproj.AssemblyReference.cache
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Properties.Resources.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank System.csproj.GenerateResource.cache
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank System.csproj.CoreCompileInputs.cache
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank System.exe
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank System.pdb
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.frmAddEditPerson.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\Business Layer.dll
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\DataAccesLayer.dll
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\Business Layer.pdb
+C:\Users\diyah\Desktop\Bank System\Bank System\bin\Debug\DataAccesLayer.pdb
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank System.csproj.CopyComplete
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.People.Controls.ctrlPersonCard.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.People.frmShowPersonInfo.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.People.Controls.ctrlPersonCardWithFilter.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.People.frmFindPerson.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.People.frmListPeople.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.frmMain.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Users.ctrlUserCard.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Users.frmUserInfo.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Users.frmChangePassword.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Users.frmUsersList.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Users.frmAddUpdateUser.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Clients.frmAddUpdateClient.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Clients.ctrlClientCard.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Clients.frmClientInfo.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Clients.frmClientList.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Login.frmLogin.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Transactions.frmWithdraw.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Transactions.frmDeposite.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Transactions.frmTransfer.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.frmBigUserPicture.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Transfer_Log.frmTransferLog.resources
+C:\Users\diyah\Desktop\Bank System\Bank System\obj\Debug\Bank_System.Login_File.frmLoginFile.resources
