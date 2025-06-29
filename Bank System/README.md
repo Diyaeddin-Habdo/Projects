@@ -9,6 +9,7 @@ A comprehensive banking management system - Built with C# WinForms and SQL Serve
 - [Technologies](#technologies)
 - [Architecture](#architecture)
 - [Screenshots](#screenshots)
+- [Contact](#Contact)
 
 ## 🎯 About the Project
 
@@ -100,46 +101,41 @@ The project is developed using 3-Tier Architecture:
 
 ## 🖼️ Screenshots
 
-### Main Screen
-![Main Screen](screenshots/Main.jpg)
+### 📱 Application Overview
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+  <img src="screenshots/Main.jpg" width="300" alt="Main Application Screen"/>
+</div>
 
-### People List
-![People List](screenshots/PeopleList.jpg)
+### 👥 User Management
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+  <img src="screenshots/PeopleList.jpg" width="200" alt="People List"/>
+  <img src="screenshots/CleintsList.jpg" width="200" alt="Clients List"/>
+  <img src="screenshots/UsersList.jpg" width="200" alt="Users List"/>
+  <img src="screenshots/UserDetails.jpg" width="200" alt="User Details"/>
+  <img src="screenshots/UpdatePersonInfo.jpg" width="200" alt="Update Person Information"/>
+</div>
 
-### Clients List
-![Cleints List](screenshots/CleintsList.jpg)
+### 💰 Financial Operations
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+  <img src="screenshots/Transactions.jpg" width="200" alt="Transactions"/>
+  <img src="screenshots/Transfer.jpg" width="200" alt="Transfer Money"/>
+  <img src="screenshots/Deposite.jpg" width="200" alt="Deposit Money"/>
+  <img src="screenshots/Withdraw.jpg" width="200" alt="Withdraw Money"/>
+  <img src="screenshots/TransferLog.jpg" width="200" alt="Transfer Log"/>
+</div>
 
-### Users List
-![Users List](screenshots/UsersList.jpg)
+### 🔒 Account & Security
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+  <img src="screenshots/AccountSettings.jpg" width="200" alt="Account Settings"/>
+  <img src="screenshots/ChangePassword.jpg" width="200" alt="Change Password"/>
+  <img src="screenshots/LoginFile.jpg" width="200" alt="Login Logs"/>
+</div>
 
-### Transactions
-![Transactions](screenshots/Transactions.jpg)
-
-### Transfer
-![Transfer](screenshots/Transfer.jpg)
-
-### Deposite
-![Deposite](screenshots/Deposite.jpg)
-
-### Withdraw
-![Withdraw](screenshots/Withdraw.jpg)
-
-### Transfer log
-![TransferLog](screenshots/TransferLog.jpg)
-
-### Login log
-![Loginlog](screenshots/LoginFile.jpg)
-
-### Update Person Info
-![UpdatePersonInfo](screenshots/UpdatePersonInfo.jpg)
-
-### User Details
-![UserDetails](screenshots/UserDetails.jpg)
-
-### Account Settings
-![AccountSettings](screenshots/AccountSettings.jpg)
-
-### Change Password
-![ChangePassword](screenshots/ChangePassword.jpg)
+## 📬 Contact  
+- 💻 **Portfolio**:[Diyaeddin Habdo](https://diyaeddin-habdo.github.io/portfolio/)
+- 📧 **Email**: [diyahabdo@gmail.com](mailto:diyahabdo@gmail.com)  
+- 💼 **LinkedIn**: [Diyaeddin Habdo](https://www.linkedin.com/in/diyaeddin-habdo-0b26a3236/)  
+- 🐱 **GitHub**: [@Diyaeddin-Habdo](https://github.com/Diyaeddin-Habdo)  
+- 📸 **Instagram**: [@Diyaeddin_376](https://www.instagram.com/eng.diyaeddin?igsh=ZHpqOGtsNWQ0aGox)  
 
 

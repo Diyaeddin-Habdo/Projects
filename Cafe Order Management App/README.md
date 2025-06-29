@@ -158,58 +158,82 @@ The system follows a modern microservices-inspired architecture:
 
 ## 🖼️ Screenshots
 
-### Login Screen and Icon
-![Login Screen](screenshots/AppIcon.png)
-![Login Screen](screenshots/Login1.png)
-![Login Screen](screenshots/login2.png)
-![Login Screen](screenshots/login3.png)
-![Login Screen](screenshots/login4.png)
+### 📱 Login Screen
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/AppIcon.png" width="200" alt="App Icon"/>
+  <img src="screenshots/Login1.png" width="200" alt="Login Screen 1"/>
+  <img src="screenshots/login2.png" width="200" alt="Login Screen 2"/>
+  <img src="screenshots/login3.png" width="200" alt="Login Screen 3"/>
+  <img src="screenshots/login4.png" width="200" alt="Login Screen 4"/>
+</div>
 
-### Waiter Interface
-![Waiter Dashboard](screenshots/TablesList.png)
-![Table Selection](screenshots/TablesList2.png)
-![Menu Selection](screenshots/AddOrders.png)
-![Menu Selection](screenshots/AddOrders2.png)
-![Menu Selection](screenshots/AddOrders3.png)
-![Menu Selection](screenshots/AddOrders4.png)
-![Menu Selection](screenshots/ShowAddedOrders.png)
+### 🧑‍💼 Waiter Interface
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/TablesList.png" width="200" alt="Tables List"/>
+  <img src="screenshots/TablesList2.png" width="200" alt="Table Selection"/>
+  <img src="screenshots/AddOrders.png" width="200" alt="Add Orders"/>
+  <img src="screenshots/AddOrders2.png" width="200" alt="Menu Selection"/>
+  <img src="screenshots/AddOrders3.png" width="200" alt="Order Options"/>
+  <img src="screenshots/ShowAddedOrders.png" width="200" alt="Order Summary"/>
+</div>
 
-### Chef Interface
-![Kitchen Display](screenshots/Orderdelivered.png)
-![Kitchen Display](screenshots/chefScreen.png)
+### 👨‍🍳 Chef Interface
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/chefScreen.png" width="300" alt="Kitchen Display"/>
+  <img src="screenshots/Orderdelivered.png" width="300" alt="Order Delivered"/>
+</div>
 
-### Cashier Interface
-![Payment Processing](screenshots/cashierScreen.png)
-![Order Summary](screenshots/cashierScreen2.png)
-![Order Summary](screenshots/TableOrdersScreen.png)
-![Order Summary](screenshots/Payed.png)
+### 💰 Cashier Interface
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/cashierScreen.png" width="300" alt="Payment Screen"/>
+  <img src="screenshots/cashierScreen2.png" width="300" alt="Order Summary"/>
+  <img src="screenshots/TableOrdersScreen.png" width="300" alt="Table Orders"/>
+  <img src="screenshots/Payed.png" width="300" alt="Payment Completed"/>
+</div>
 
-### Manager Interface
-![Manager Dashboard](screenshots/ManagerScreen.png)
-![Manager Dashboard](screenshots/ManagerScreenTabs.png)
-![Manager Dashboard](screenshots/TablesManagement.png)
-![Manager Dashboard](screenshots/AddTable.png)
-![Manager Dashboard](screenshots/UpdateTable.png)
-![Manager Dashboard](screenshots/TableStatus.png)
-![Manager Dashboard](screenshots/ProductsManagement.png)
-![Manager Dashboard](screenshots/AddProduct.png)
-![Manager Dashboard](screenshots/UpdateProduct.png)
-![Manager Dashboard](screenshots/UsersManagement.png)
-![Manager Dashboard](screenshots/AddUser.png)
-![Manager Dashboard](screenshots/UserAdded.png)
-![Manager Dashboard](screenshots/UpdateUser.png)
-![Manager Dashboard](screenshots/UserUpdated.png)
-![Manager Dashboard](screenshots/DeleteUser.png)
-![Manager Dashboard](screenshots/UpdateManager.png)
-![Manager Dashboard](screenshots/SearchUser.png)
-![Manager Dashboard](screenshots/Reports1.png)
-![Manager Dashboard](screenshots/Reports2.png)
-![Manager Dashboard](screenshots/Reports3.png)
-![Manager Dashboard](screenshots/Reports4.png)
-![Manager Dashboard](screenshots/Reports5.png)
-![Manager Dashboard](screenshots/DifferentLanguage0.png)
-![Manager Dashboard](screenshots/DifferentLanguage1.png)
-![Manager Dashboard](screenshots/DifferentLanguage2.png)
+### 👔 Manager Interface
+#### Tables Management
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/TablesManagement.png" width="200" alt="Tables Management"/>
+  <img src="screenshots/AddTable.png" width="200" alt="Add Table"/>
+  <img src="screenshots/UpdateTable.png" width="200" alt="Update Table"/>
+  <img src="screenshots/TableStatus.png" width="200" alt="Table Status"/>
+</div>
+
+#### Products Management
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/ProductsManagement.png" width="200" alt="Products Management"/>
+  <img src="screenshots/AddProduct.png" width="200" alt="Add Product"/>
+  <img src="screenshots/UpdateProduct.png" width="200" alt="Update Product"/>
+</div>
+
+#### Users Management
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/UsersManagement.png" width="200" alt="Users Management"/>
+  <img src="screenshots/AddUser.png" width="200" alt="Add User"/>
+  <img src="screenshots/UserAdded.png" width="200" alt="User Added"/>
+  <img src="screenshots/UpdateUser.png" width="200" alt="Update User"/>
+  <img src="screenshots/UserUpdated.png" width="200" alt="User Updated"/>
+  <img src="screenshots/DeleteUser.png" width="200" alt="Delete User"/>
+  <img src="screenshots/UpdateManager.png" width="200" alt="Update Manager"/>
+  <img src="screenshots/SearchUser.png" width="200" alt="Search User"/>
+</div>
+
+#### Reports & Analytics
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/Reports1.png" width="200" alt="Sales Reports"/>
+  <img src="screenshots/Reports2.png" width="200" alt="Product Reports"/>
+  <img src="screenshots/Reports3.png" width="200" alt="Time-based Reports"/>
+  <img src="screenshots/Reports4.png" width="200" alt="Detailed Reports"/>
+  <img src="screenshots/Reports5.png" width="200" alt="Export Reports"/>
+</div>
+
+#### Multi-language Support
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="screenshots/DifferentLanguage0.png" width="200" alt="Language Selection"/>
+  <img src="screenshots/DifferentLanguage1.png" width="200" alt="English Interface"/>
+  <img src="screenshots/DifferentLanguage2.png" width="200" alt="Turkish Interface"/>
+</div>
 
 
 ## 📬 Contact  
