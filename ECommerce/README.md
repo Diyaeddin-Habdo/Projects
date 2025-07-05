@@ -32,55 +32,55 @@ A comprehensive e-commerce platform built with modern web technologies, featurin
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/Database Diagram.png" width="100%"/>
+    <img src="screenshots/Database Diagram.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/01.png" width="100%"/>
+    <img src="screenshots/01.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/02.png" width="100%"/>
+    <img src="screenshots/02.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/03.png" width="100%"/>
+    <img src="screenshots/03.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/04.png" width="100%"/>
+    <img src="screenshots/04.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/05.png" width="100%"/>
+    <img src="screenshots/05.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/06.png" width="100%"/>
+    <img src="screenshots/06.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/07.png" width="100%"/>
+    <img src="screenshots/07.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/08.png" width="100%"/>
+    <img src="screenshots/08.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/09.png" width="100%"/>
+    <img src="screenshots/09.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/10.png" width="100%"/>
+    <img src="screenshots/10.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/11.png" width="100%"/>
+    <img src="screenshots/11.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/12.png" width="100%"/>
+    <img src="screenshots/12.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/13.png" width="100%"/>
+    <img src="screenshots/13.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/14.png" width="100%"/>
+    <img src="screenshots/14.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/15.png" width="100%"/>
+    <img src="screenshots/15.jpg" width="100%"/>
   </div>
   <div style="flex: 0 0 calc(33.33% - 10px);">
-    <img src="screenshots/16.png" width="100%"/>
+    <img src="screenshots/16.jpg" width="100%"/>
   </div>
 </div>
 
